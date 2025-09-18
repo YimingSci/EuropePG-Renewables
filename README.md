@@ -67,7 +67,7 @@ The dynamic behavior of the power-grid network is analyzed using the `Dynamic_an
 <img width="4624" height="206" alt="eq1" src="https://github.com/user-attachments/assets/943001e3-17a8-46d1-a014-a000fdc249e2" />
 
 
-where $$delta_i$$ denotes the voltage phase angle of generator $$i$$, $$M_i$$ and $$D_i$$ denotes its inertia and damping coefficients, $$P_{i(0)}$$ is the mechanical power of node, and $$P_{i(e)}$$ is the electric power of node. To reflect the low-inertia characteristics of wind and solar generators, a uniform inertia constant of 0.01 is assigned to them—approximately one-third of the minimum inertia constant among conventional power sources. The damping coefficient is uniformly set to 0.005. The imbalance between $$P_{i(e)}$$ and  $$P_{i(0)}$$ caused by the disturbance is the driving factor behind the onset of power system oscillations and potential instability. 
+where deltaidelta_i denotes the voltage phase angle of generator ii, MiM_i and DiD_i denotes its inertia and damping coefficients, Pi(0)P_{i(0)} is the mechanical power of node, and Pi(e)P_{i(e)} is the electric power of node. To reflect the low-inertia characteristics of wind and solar generators, a uniform inertia constant of 0.01 is assigned to them—approximately one-third of the minimum inertia constant among conventional power sources. The damping coefficient is uniformly set to 0.005. The imbalance between Pi(e)P_{i(e)} and  Pi(0)P_{i(0)} caused by the disturbance is the driving factor behind the onset of power system oscillations and potential instability. 
 
 The dynamics of load nodes are described by first-order equations: 
 
@@ -77,9 +77,9 @@ Then, the power flow equations of the grid define the following algebraic constr
 
 <img width="4624" height="283" alt="eq3" src="https://github.com/user-attachments/assets/34e11223-66af-477d-8d27-61a070c284f0" />
 
-where $$B_{ij}$$​ denotes the imaginary part of the admittance of the transmission line between nodes $$i$$ and $$j$$, and $$V_i$$  represents the voltage magnitude at node $$i$$.
+where BijB_{ij}​ denotes the imaginary part of the admittance of the transmission line between nodes ii and jj, and ViV_i  represents the voltage magnitude at node ii.
 
-Finally, we consider the following equation to quantify the contributions of a set of generators $$𝒱_{gen}$$ on the system inertia [8]:
+Finally, we consider the following equation to quantify the contributions of a set of generators 𝒱gen𝒱_{gen} on the system inertia [8]:
 
 <img width="4624" height="483" alt="eq4" src="https://github.com/user-attachments/assets/aa56d978-b0cf-4d30-b239-5db11e74240d" />
 
@@ -107,6 +107,7 @@ In Ref. [1], we present two mitigation strategies to improve the system resilie
 
 - `PSF_renewable.mat` : Power grid data, provided in a `mpc` format compatible with MATPOWER [4], with power flows pre-adjusted to match the generation profiles shown in Figures 2d–f.
 - `Dynamic_analysis.m` : Time-domain simulation code. This script includes fault initialization, parameter setup, and dynamic simulation procedures.
+- `Cal_optimal_grad.m` : Gradient-based optimization code. This script performs steepest-descent path tracing with smoothing to compute the optimal investment trajectory.
 
 Matpower 6.0 (https://matpower.org/download/) is required for the power flow calculation.
 
